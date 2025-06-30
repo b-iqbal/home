@@ -1,0 +1,18 @@
+{
+  "name": "Bilal Iqbal",
+  "bio": "Developer · Photographer · Cricketer · Curious Human",
+  "tagline": "Turning ideas into code. Stories into photos.",
+  "profileImage": "images/profile.jpeg",
+  "buttons": [
+    {
+      "text": "About Me",
+      "icon": "👤",
+      "link": "aboutme.html"
+    },
+    {
+      "text": "LinkedIn",
+      "icon": "🔗",
+      "link": "https://www.linkedin.com/in/b-dev"
+    }
+  ]
+}
