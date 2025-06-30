@@ -112,7 +112,10 @@
             }
             .buttons {
                 flex-direction: column;
-                gap: 0.8rem;
+                gap: 1.25rem; /* Increased gap for mobile */
+            }
+            .buttons a {
+                width: 100%; /* Make buttons full width on mobile */
             }
             .card-box {
                 padding: 1.5rem; /* Adjust padding for smaller screens */
@@ -123,11 +126,11 @@
 <body class="antialiased">
     <div class="card-box"> <!-- This is the new raised box -->
         <div class="name"><span class="text-yellow-400">{</span> Bilal Iqbal <span class="text-yellow-400">}</span></div>
-        <div class="tagline">Code | Create | Inspire</div>
+        <div class="tagline">Software Engineer with a curious mind and creative hands</div>
         <div class="buttons">
             <div class="button-wrapper">
                 <span class="tooltip">Learn more about me</span>
-                <a href="aboutme.html">About Me</a>
+                <a href="about.html">About Me</a>
             </div>
             <div class="button-wrapper">
                 <span class="tooltip">Connect with me online</span>
@@ -149,7 +152,7 @@
 
     <!-- Optional: Footer (consistent with about.html) -->
     <footer class="bg-gray-900 p-6 text-center text-gray-500 text-sm w-full absolute bottom-0 left-0">
-        <p>&copy; 2025 Bilal Iqbal. All rights reserved.</p>
+        <p>&copy; 2024 Bilal Iqbal. All rights reserved.</p>
     </footer>
 </body>
 </html>
