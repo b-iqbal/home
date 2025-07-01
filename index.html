@@ -3,9 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Bilal Iqbal - My Story</title>
+  <title>Bilal Iqbal</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <!-- Google Font for unique quote style -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   <style>
     * {
       margin: 0;
@@ -20,10 +21,8 @@
       color: #eaeaea;
       text-align: center;
       padding: 50px 20px;
-
-
       background-color: #0d1117; /* fallback while image loads */
-      opacity: 0;
+      opacity: 0; /* Hidden initially, controlled by JS */
       transition: opacity 0.5s ease-in-out;
     }
 
@@ -34,6 +33,7 @@
       border-radius: 16px;
       padding: 40px 30px;
       box-shadow: 0 0 25px rgba(0,0,0,0.4);
+      margin-bottom: 30px; /* Space below the main profile container */
     }
 
     .avatar {
@@ -85,6 +85,149 @@
       transform: scale(1.05);
     }
 
+    /* --- Story Section Styling (Quote Block) --- */
+    .quote-container {
+        max-width: 700px; /* Wider for story text */
+        margin: 50px auto; /* Centered with space */
+        background: rgba(20, 20, 30, 0.8);
+        border-radius: 16px;
+        padding: 40px 30px;
+        box-shadow: 0 0 25px rgba(0,0,0,0.4);
+        text-align: left; /* Align text left for readability */
+    }
+
+    .story-title {
+        font-family: 'Inter', sans-serif; /* Use Inter for the title */
+        color: #5ab2ff; /* Your accent color */
+        font-size: 2em; /* Adjust size as needed */
+        margin-bottom: 25px; /* Space below the title */
+        text-align: center; /* Center the title */
+        font-weight: 700; /* Make it bold */
+    }
+
+    blockquote {
+        font-family: 'Playfair Display', serif; /* Unique font for the quote */
+        font-size: 1.3em; /* Slightly larger for emphasis */
+        font-style: italic; /* Classic quote look */
+        color: #5ab2ff; /* Your accent color for the quote text */
+        border-left: 5px solid #ffc82c; /* Accent border on the left */
+        padding-left: 25px;
+        margin: 0; /* Remove default blockquote margin */
+        quotes: "“" "”" "‘" "’"; /* Define custom quote marks */
+    }
+
+    blockquote::before {
+        content: open-quote;
+        font-size: 3em; /* Large opening quote */
+        color: #ffc82c; /* Accent color for the quote mark */
+        line-height: 0.1;
+        margin-right: 10px;
+        vertical-align: -0.4em; /* Adjust vertical position */
+    }
+
+    blockquote p {
+        margin-bottom: 1em; /* Space between paragraphs within the quote */
+        color: #ddd; /* Slightly lighter color for body text within quote */
+        font-size: 0.9em; /* Slightly smaller for body text within quote */
+        font-style: normal; /* Ensure paragraphs are not italic if blockquote is */
+        font-family: 'Playfair Display', serif; /* Keep the unique font for paragraphs */
+    }
+
+    .quote-attribution {
+        text-align: right;
+        margin-top: 20px;
+        font-size: 1em;
+        color: #bbb;
+        font-family: 'Inter', sans-serif; /* Back to main font for attribution */
+    }
+
+    /* --- New Content Block Styling (for About Me Intro & Interests) --- */
+    .content-block {
+        max-width: 500px; /* Matches your main container width */
+        margin: 30px auto; /* Centered with space above/below */
+        background: rgba(20, 20, 30, 0.8);
+        border-radius: 16px;
+        padding: 40px 30px;
+        box-shadow: 0 0 25px rgba(0,0,0,0.4);
+        text-align: left; /* Align text left for readability */
+    }
+
+    .content-block h2 {
+        color: #5ab2ff;
+        font-size: 1.8em;
+        margin-bottom: 20px;
+        text-align: center; /* Center the heading within these blocks */
+    }
+
+    .content-block p {
+        font-size: 1em;
+        line-height: 1.7;
+        margin-bottom: 1em;
+        color: #ddd;
+    }
+
+    .content-block ul {
+        list-style: none; /* Remove default bullet points */
+        padding: 0;
+        margin-top: 15px;
+    }
+
+    .content-block ul li {
+        margin-bottom: 10px;
+        font-size: 1em;
+        color: #ddd;
+        position: relative;
+        padding-left: 20px; /* Space for custom bullet */
+    }
+
+    .content-block ul li::before {
+        content: '•'; /* Custom bullet point */
+        color: #ffc82c; /* Accent color for bullet */
+        font-size: 1.2em;
+        position: absolute;
+        left: 0;
+        top: -2px;
+    }
+
+    /* --- Section Separator Styling (Horizontal) --- */
+    .section-separator {
+        width: 100px; /* Width of the line */
+        height: 4px; /* Thickness of the line */
+        background-color: #ffc82c; /* Yellow color, matching brackets */
+        border-radius: 2px; /* Rounded edges */
+        margin: 40px auto; /* Center horizontally and provide vertical spacing */
+    }
+
+    /* --- Vertical Connector Styling --- */
+    .vertical-connector {
+        width: 4px; /* Thickness of the vertical line */
+        height: 80px; /* Length of the vertical line between blocks */
+        background-color: #5ab2ff; /* Blue accent color */
+        border-radius: 2px; /* Rounded edges for the line itself */
+        margin: 30px auto; /* Center horizontally, provide vertical spacing */
+        position: relative; /* For pseudo-elements */
+    }
+
+    .vertical-connector::before,
+    .vertical-connector::after {
+        content: '';
+        position: absolute;
+        width: 12px; /* Size of the circular leader */
+        height: 12px;
+        background-color: #ffc82c; /* Yellow accent color for leaders */
+        border-radius: 50%; /* Make it a circle */
+        left: 50%;
+        transform: translateX(-50%); /* Center horizontally */
+    }
+
+    .vertical-connector::before {
+        top: -6px; /* Position at the top end of the line */
+    }
+
+    .vertical-connector::after {
+        bottom: -6px; /* Position at the bottom end of the line */
+    }
+
   </style>
 </head>
 <body>
@@ -93,123 +236,116 @@
     <div class="animate-spin rounded-full h-16 w-16 border-t-4 border-blue-400 border-opacity-75"></div>
   </div>
 
-  <div class="container" id="profile"></div>
+  <!-- Main Profile Container -->
+  <div class="container" id="profile">
+    <img src="https://placehold.co/120x120/0d1117/ffffff?text=BI" alt="Bilal Iqbal" class="avatar" />
+    <h1><span class="brackets">{</span> Bilal Iqbal <span class="brackets">}</span></h1>
+    <div class="bio-line">Software Engineer | Building scalable solutions with a passion for clean code.</div>
+    <div class="tagline">My journey started when I moved to Ireland at the age of 12, and I've proudly called it home for almost two decades. That's over 20 years of local insight.</div>
+    <div class="buttons">
+      <a href="https://github.com/b-iqbal" target="_blank">🚀 GitHub</a>
+      <a href="https://www.linkedin.com/in/bilaliqbal" target="_blank">🔗 LinkedIn</a>
+      <a href="mailto:youremail@example.com">📧 Email Me</a>
+      <a href="path/to/your/resume.pdf" target="_blank">📄 Resume</a>
+    </div>
+  </div>
+
+  <div class="section-separator"></div> <!-- Separator after main profile -->
+
+  <!-- About Me Section -->
+  <section id="about-me-section">
+      <!-- My Journey So Far (Quoted Story) -->
+      <div class="quote-container" id="story-quote-block">
+          <h2 class="story-title">My Journey So Far</h2>
+          <blockquote>
+              <p>I first set foot on Irish soil at the age of 12, a curious kid who could barely speak a word of English. I vividly remember sitting in classes, nodding my head, pretending to understand. It took immense hard work, unwavering commitment, and sheer determination to overcome that hurdle and truly thrive—a resilience that would define much of my journey.</p>
+              <p>Over the past two decades, Ireland has become more than just a place I live; it's where I found my true story. From those early days of adapting, I learned to play football on local pitches, discovered the thrill of writing my very first line of code, and built lifelong friendships that have become like family. I also fell deeply in love with its breathtaking nature, exploring rugged coastlines and serene green landscapes. It even rekindled my passion for cricket, a sport I embraced once again here.</p>
+              <p>This journey of adaptation, learning, and discovery in Ireland has profoundly shaped who I am today. The challenges I overcame in those early years instilled in me the persistence and problem-solving mindset crucial for a software engineer. My deep roots here give me a unique perspective on technology and a commitment to building solutions that truly connect with people. I'm incredibly grateful and truly glad to call Ireland my home, and this incredible journey, rich with personal growth and professional pursuit, is just the beginning.</p>
+          </blockquote>
+          <div class="quote-attribution">— Bilal Iqbal</div>
+      </div>
+
+      <div class="vertical-connector"></div> <!-- Vertical connector after story -->
+
+      <!-- Who I Am & What I Do -->
+      <div class="content-block" id="about-me-intro">
+          <h2>Who I Am & What I Do</h2>
+          <p>As a passionate software engineer, I thrive on transforming complex problems into elegant, scalable solutions. My expertise lies in cloud-native development, full-stack web applications, and data architecture, always with a focus on clean code and robust design. I believe in continuous learning and leveraging technology to make a tangible impact.</p>
+      </div>
+
+      <div class="vertical-connector"></div> <!-- Vertical connector after about me intro -->
+
+      <!-- Beyond the Code (Interests) -->
+      <div class="content-block" id="interests-section">
+          <h2>Beyond the Code</h2>
+          <ul>
+              <li><strong>Cricket:</strong> A lifelong passion rekindled in Ireland, I enjoy both playing and following the sport, appreciating its strategic depth and camaraderie.</li>
+              <li><strong>Hiking & Nature:</strong> Exploring Ireland's stunning landscapes, from the Cliffs of Moher to the Wicklow Mountains, provides a vital balance and fresh perspective.</li>
+              <li><strong>Photography:</strong> Capturing moments and landscapes allows me to express creativity and see the world through a different lens, complementing my analytical skills.</li>
+              <li><strong>Learning & Development:</strong> Beyond formal education, I'm constantly exploring new technologies, programming paradigms, and personal growth strategies.</li>
+          </ul>
+      </div>
+
+      <div class="vertical-connector"></div> <!-- Vertical connector after interests -->
+
+      <!-- Current Projects Section -->
+      <div class="content-block" id="current-projects-section">
+          <h2>Current Projects</h2>
+          <ul>
+              <li>
+                  <strong>Missing Persons Portal:</strong> Developing a secure and user-friendly platform to help connect families with missing loved ones, leveraging robust database design and privacy-focused features.
+              </li>
+              <li>
+                  <strong>Community Hub:</strong> Building a dynamic web application designed to foster local connections, facilitate event organization, and share resources within a community.
+              </li>
+              <li>
+                  <strong>AI-Based Family Tree Generator:</strong> Creating an innovative tool that constructs family trees by analyzing and structuring conversational text messages, utilizing advanced natural language processing and AI.
+              </li>
+          </ul>
+      </div>
+  </section>
 
   <script>
   const img = new Image();
-  img.src = 'images/bg-pattern.png';
+  img.src = 'images/bg-pattern.png'; // Make sure this path is correct
+  let imageLoaded = false;
+
   img.onload = function () {
+    imageLoaded = true;
     document.getElementById('loader').style.display = 'none';
     document.body.style.opacity = 1;
   };
-  </script>
-  <script>
-    fetch('data.json')
-      .then(res => res.json())
-      .then(data => {
-        document.getElementById('profile').innerHTML = `
-          <img src="${data.profileImage}" alt="${data.name}" class="avatar" />
-          <h1><span class="brackets">{</span> ${data.name} <span class="brackets">}</span></h1>
-          <div class="bio-line">${data.bio}</div>
-          <div class="tagline">${data.tagline}</div>
-          <div class="buttons">
-            ${data.buttons.map(button => `
-              <a href="${button.link}" ${button.external ? 'target="_blank"' : ''}>
-                ${button.icon} ${button.text}
-              </a>
-            `).join('')}
-          </div>
-        `;
-      })
-      .catch(err => {
-        document.getElementById('profile').innerHTML = `<p>Could not load profile data.</p>`;
-        console.error(err);
+
+  img.onerror = function() {
+    console.error("Background image failed to load. Displaying page anyway.");
+    document.getElementById('loader').style.display = 'none';
+    document.body.style.opacity = 1;
+  };
+
+  // Fallback timeout in case onload/onerror don't fire or are delayed
+  setTimeout(() => {
+    if (!imageLoaded) {
+      document.getElementById('loader').style.display = 'none';
+      document.body.style.opacity = 1;
+    }
+  }, 3000); // Show body after 3 seconds even if image not loaded
+
+  // The welcome bubble script remains as it's not tied to data.json
+  document.addEventListener("DOMContentLoaded", function() {
+    if (!localStorage.getItem('welcomeBubbleDismissed')) {
+      const bubble = document.getElementById('welcomeBubble');
+      bubble.classList.add('show');
+
+      document.getElementById('closeWelcome').addEventListener('click', function() {
+        bubble.style.opacity = '0';
+        setTimeout(() => {
+          bubble.style.display = 'none';
+        }, 400);
+        localStorage.setItem('welcomeBubbleDismissed', 'true');
       });
+    }
+  });
   </script>
-
-<style>
-        /* General body styles for context, matching your existing dark theme */
-        body {
-            font-family: 'Inter', sans-serif; /* Default font for the page */
-            background-color: #0d1117;
-            color: #eaeaea;
-            text-align: center;
-            padding: 50px 20px;
-            line-height: 1.6;
-        }
-
-        /* Container for the quote to give it structure and background */
-        .quote-container {
-            max-width: 700px; /* Wider than your main profile container for story text */
-            margin: 50px auto; /* Centered with space */
-            background: rgba(20, 20, 30, 0.8); /* Semi-transparent dark background */
-            border-radius: 16px;
-            padding: 40px 30px;
-            box-shadow: 0 0 25px rgba(0,0,0,0.4);
-            text-align: left; /* Align text left for readability */
-        }
-
-        /* Title for the story section */
-        .story-title {
-            font-family: 'Inter', sans-serif; /* Use Inter for the title */
-            color: #5ab2ff; /* Your accent color */
-            font-size: 2em; /* Adjust size as needed */
-            margin-bottom: 25px; /* Space below the title */
-            text-align: center; /* Center the title */
-            font-weight: 700; /* Make it bold */
-        }
-
-        /* Styling for the blockquote itself */
-        blockquote {
-            font-family: 'Playfair Display', serif; /* Unique font for the quote */
-            font-size: 1.3em; /* Slightly larger for emphasis */
-            font-style: italic; /* Classic quote look */
-            color: #5ab2ff; /* Your accent color for the quote text */
-            border-left: 5px solid #ffc82c; /* Accent border on the left */
-            padding-left: 25px;
-            margin: 0; /* Remove default blockquote margin */
-            quotes: "“" "”" "‘" "’"; /* Define custom quote marks */
-        }
-
-        /* Add custom quote marks using pseudo-elements */
-        blockquote::before {
-            content: open-quote;
-            font-size: 3em; /* Large opening quote */
-            color: #ffc82c; /* Accent color for the quote mark */
-            line-height: 0.1;
-            margin-right: 10px;
-            vertical-align: -0.4em; /* Adjust vertical position */
-        }
-
-        blockquote p {
-            margin-bottom: 1em; /* Space between paragraphs within the quote */
-            color: #ddd; /* Slightly lighter color for body text within quote */
-            font-size: 0.9em; /* Slightly smaller for body text within quote */
-            font-style: normal; /* Ensure paragraphs are not italic if blockquote is */
-            font-family: 'Playfair Display', serif; /* Keep the unique font for paragraphs */
-        }
-
-        /* Style for the attribution (optional, but good for quotes) */
-        .quote-attribution {
-            text-align: right;
-            margin-top: 20px;
-            font-size: 1em;
-            color: #bbb;
-            font-family: 'Inter', sans-serif; /* Back to main font for attribution */
-        }
-    </style>
-
-  <div class="quote-container">
-    <h2 class="story-title">My Journey So Far</h2>
-        <blockquote>
-            <p>I first set foot on Irish soil at the age of 12, a curious kid who could barely speak a word of English. I vividly remember sitting in classes, nodding my head, pretending to understand. It took immense hard work, unwavering commitment, and sheer determination to overcome that hurdle and truly thrive—a resilience that would define much of my journey.</p>
-
-            <p>Over the past two decades, Ireland has become more than just a place I live; it's where I found my true story. From those early days of adapting, I learned to play football on local pitches, discovered the thrill of writing my very first line of code, and built lifelong friendships that have become like family. I also fell deeply in love with its breathtaking nature, exploring rugged coastlines and serene green landscapes. It even rekindled my passion for cricket, a sport I embraced once again here.</p>
-
-            <p>This journey of adaptation, learning, and discovery in Ireland has profoundly shaped who I am today. The challenges I overcame in those early years instilled in me the persistence and problem-solving mindset crucial for a software engineer. My deep roots here give me a unique perspective on technology and a commitment to building solutions that truly connect with people. I'm incredibly grateful and truly glad to call Ireland my home, and this incredible journey, rich with personal growth and professional pursuit, is just the beginning.</p>
-        </blockquote>
-        <div class="quote-attribution">— Bilal Iqbal</div>
-    </div>
 
  
 <!-- Add this near the end of your <body> -->
@@ -247,23 +383,6 @@
     color: #ff4d4d;
   }
 </style>
-
-<script>
-  document.addEventListener("DOMContentLoaded", function() {
-    if (!localStorage.getItem('welcomeBubbleDismissed')) {
-      const bubble = document.getElementById('welcomeBubble');
-      bubble.classList.add('show');
-
-      document.getElementById('closeWelcome').addEventListener('click', function() {
-        bubble.style.opacity = '0';
-        setTimeout(() => {
-          bubble.style.display = 'none';
-        }, 400);
-        localStorage.setItem('welcomeBubbleDismissed', 'true');
-      });
-    }
-  });
-</script>
 
 
 </body>
