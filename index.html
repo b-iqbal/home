@@ -84,31 +84,6 @@
       transform: scale(1.05);
     }
 
-    #welcomeBubble {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background-color: #222;
-    color: white;
-    padding: 12px 18px;
-    border-radius: 25px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-    font-family: Arial, sans-serif;
-    font-size: 14px;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    z-index: 1000;
-    opacity: 0;
-    transition: opacity 0.4s ease;
-  }
-  #welcomeBubble.show {
-    display: flex;
-    opacity: 1;
-  }
-  #welcomeBubble button:hover {
-    color: #ff4d4d;
-  }
   </style>
 </head>
 <body>
@@ -152,24 +127,49 @@
   </script>
 
  
-<div id="welcomeBubble" style="display:none;">
-  <span>👋 Welcome! Thanks for visiting. Let’s connect! </span>
-  <a href="https://www.linkedin.com/in/b-dev" target="_blank" rel="noopener" style="margin-left:8px; color:#0a66c2; text-decoration:none;">LinkedIn</a>
-  <a href="mailto:biqbal596@gmail.com" style="margin-left:8px; color:#333; text-decoration:none;">Email</a>
+<!-- Add this near the end of your <body> -->
+<div id="welcomeBubble" aria-live="polite" role="alert">
+  <span>👋 Welcome! Thanks for visiting. Let’s connect!</span>
+  <a href="https://www.linkedin.com/in/yourprofile" target="_blank" rel="noopener" style="margin-left:8px; color:#0a66c2; text-decoration:none;">LinkedIn</a>
+  <a href="https://twitter.com/yourhandle" target="_blank" rel="noopener" style="margin-left:8px; color:#1da1f2; text-decoration:none;">Twitter</a>
+  <a href="mailto:youremail@example.com" style="margin-left:8px; color:#333; text-decoration:none;">Email</a>
   <button id="closeWelcome" aria-label="Close welcome message" style="margin-left:12px; border:none; background:none; cursor:pointer; font-weight:bold;">×</button>
 </div>
 
-
+<style>
+  #welcomeBubble {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #222;
+    color: white;
+    padding: 12px 18px;
+    border-radius: 25px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    display: none; /* Hide initially */
+    align-items: center;
+    gap: 6px;
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+  #welcomeBubble.show {
+    display: flex; /* Show as flex */
+    opacity: 1;
+  }
+  #welcomeBubble button:hover {
+    color: #ff4d4d;
+  }
+</style>
 
 <script>
   document.addEventListener("DOMContentLoaded", function() {
-    // Check if visitor has seen the message before (using localStorage)
     if (!localStorage.getItem('welcomeBubbleDismissed')) {
       const bubble = document.getElementById('welcomeBubble');
-      // Show the bubble
       bubble.classList.add('show');
 
-      // Close button handler
       document.getElementById('closeWelcome').addEventListener('click', function() {
         bubble.style.opacity = '0';
         setTimeout(() => {
@@ -180,6 +180,7 @@
     }
   });
 </script>
+
 
 </body>
 </html>
