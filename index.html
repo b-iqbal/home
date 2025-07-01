@@ -3,8 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Bilal Iqbal</title>
+  <title>Bilal Iqbal - My Story</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   <style>
     * {
       margin: 0;
@@ -125,6 +126,79 @@
         console.error(err);
       });
   </script>
+
+<style>
+        /* General body styles for context, matching your existing dark theme */
+        body {
+            font-family: 'Inter', sans-serif; /* Default font for the page */
+            background-color: #0d1117;
+            color: #eaeaea;
+            text-align: center;
+            padding: 50px 20px;
+            line-height: 1.6;
+        }
+
+        /* Container for the quote to give it structure and background */
+        .quote-container {
+            max-width: 700px; /* Wider than your main profile container for story text */
+            margin: 50px auto; /* Centered with space */
+            background: rgba(20, 20, 30, 0.8); /* Semi-transparent dark background */
+            border-radius: 16px;
+            padding: 40px 30px;
+            box-shadow: 0 0 25px rgba(0,0,0,0.4);
+            text-align: left; /* Align text left for readability */
+        }
+
+        /* Styling for the blockquote itself */
+        blockquote {
+            font-family: 'Playfair Display', serif; /* Unique font for the quote */
+            font-size: 1.3em; /* Slightly larger for emphasis */
+            font-style: italic; /* Classic quote look */
+            color: #5ab2ff; /* Your accent color for the quote text */
+            border-left: 5px solid #ffc82c; /* Accent border on the left */
+            padding-left: 25px;
+            margin: 0; /* Remove default blockquote margin */
+            quotes: "“" "”" "‘" "’"; /* Define custom quote marks */
+        }
+
+        /* Add custom quote marks using pseudo-elements */
+        blockquote::before {
+            content: open-quote;
+            font-size: 3em; /* Large opening quote */
+            color: #ffc82c; /* Accent color for the quote mark */
+            line-height: 0.1;
+            margin-right: 10px;
+            vertical-align: -0.4em; /* Adjust vertical position */
+        }
+
+        blockquote p {
+            margin-bottom: 1em; /* Space between paragraphs within the quote */
+            color: #ddd; /* Slightly lighter color for body text within quote */
+            font-size: 0.9em; /* Slightly smaller for body text within quote */
+            font-style: normal; /* Ensure paragraphs are not italic if blockquote is */
+            font-family: 'Playfair Display', serif; /* Keep the unique font for paragraphs */
+        }
+
+        /* Style for the attribution (optional, but good for quotes) */
+        .quote-attribution {
+            text-align: right;
+            margin-top: 20px;
+            font-size: 1em;
+            color: #bbb;
+            font-family: 'Inter', sans-serif; /* Back to main font for attribution */
+        }
+    </style>
+
+  <div class="quote-container">
+        <blockquote>
+            <p>I first set foot on Irish soil at the age of 12, a curious kid who could barely speak a word of English. I vividly remember sitting in classes, nodding my head, pretending to understand. It took immense hard work, unwavering commitment, and sheer determination to overcome that hurdle and truly thrive—a resilience that would define much of my journey.</p>
+
+            <p>Over the past two decades, Ireland has become more than just a place I live; it's where I found my true story. From those early days of adapting, I learned to play football on local pitches, discovered the thrill of writing my very first line of code, and built lifelong friendships that have become like family. I also fell deeply in love with its breathtaking nature, exploring rugged coastlines and serene green landscapes. It even rekindled my passion for cricket, a sport I embraced once again here.</p>
+
+            <p>This journey of adaptation, learning, and discovery in Ireland has profoundly shaped who I am today. The challenges I overcame in those early years instilled in me the persistence and problem-solving mindset crucial for a software engineer. My deep roots here give me a unique perspective on technology and a commitment to building solutions that truly connect with people. I'm incredibly grateful and truly glad to call Ireland my home, and this incredible journey, rich with personal growth and professional pursuit, is just the beginning.</p>
+        </blockquote>
+        <div class="quote-attribution">— Bilal Iqbal</div>
+    </div>
 
  
 <!-- Add this near the end of your <body> -->
