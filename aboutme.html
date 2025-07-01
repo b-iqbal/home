@@ -255,5 +255,57 @@
     <footer class="bg-gray-900 p-6 text-center text-gray-500 text-sm">
         <p>&copy; 2025 Bilal Iqbal. All rights reserved.</p>
     </footer>
+
+    <script>
+  fetch('aboutme.json')
+    .then(response => response.json())
+    .then(data => {
+      document.querySelector('title').innerText = `About Me – ${data.name}`;
+      document.querySelector('nav a.text-2xl').innerText = data.name;
+      document.querySelector('#about img').src = data.photo;
+
+      // About Text
+      const bioText = data.bio.map(p => `<p class="mb-4">${p}</p>`).join('');
+      document.querySelector('#about div.text-lg').innerHTML = bioText;
+
+      // Skills
+      const skillsHTML = data.skills.map(skill => `
+        <span class="bg-blue-600 text-white px-4 py-2 rounded-full text-sm font-medium shadow-md hover:bg-blue-700 transition duration-300">${skill}</span>
+      `).join('');
+      document.querySelector('#skills div.flex-wrap').innerHTML = skillsHTML;
+
+      // Certifications
+      const certsHTML = data.certifications.map(cert => `<li>${cert}</li>`).join('');
+      document.querySelector('#certifications ul').innerHTML = certsHTML;
+
+      // Experience & Education Timeline
+      const timelineContainer = document.querySelector('#experience .relative');
+      timelineContainer.innerHTML = '';
+      data.timeline.forEach(entry => {
+        const isExp = entry.type === 'experience';
+        const listHTML = entry.items ? `<ul class="list-disc list-inside text-gray-300">${entry.items.map(item => `<li>${item}</li>`).join('')}</ul>` : '';
+        timelineContainer.innerHTML += `
+          <div class="mb-8 relative">
+            <div class="absolute w-4 h-4 bg-blue-500 rounded-full -left-8 top-1 border-2 border-white"></div>
+            <h3 class="text-2xl font-semibold text-white">${entry.title}</h3>
+            <p class="text-gray-400 text-sm mb-2">${entry.date}</p>
+            ${listHTML}
+          </div>
+        `;
+      });
+
+      // Awards
+      document.querySelector('#awards-interests ul:first-of-type').innerHTML = data.awards.map(a => `<li>${a}</li>`).join('');
+      // Interests
+      document.querySelector('#awards-interests ul:last-of-type').innerHTML = data.interests.map(i => `<li>${i}</li>`).join('');
+
+      // Contact
+      document.querySelector('#contact a[href^="mailto:"]').href = `mailto:${data.contact.email}`;
+      document.querySelector('#contact a[href*="linkedin"]').href = data.contact.linkedin;
+    })
+    .catch(err => {
+      console.error("Error loading aboutme.json", err);
+    });
+</script>
 </body>
 </html>

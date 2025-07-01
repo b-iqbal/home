@@ -1,0 +1,50 @@
+{
+  "name": "Bilal Iqbal",
+  "location": "Dublin, Ireland",
+  "photo": "images/profile.jpeg",
+  "bio": [
+    "Hello! I'm Bilal Iqbal, a Software Engineer based in Dublin, Ireland, with over five years of professional experience in backend and infrastructure development.",
+    "My expertise primarily lies in using Java, Python, and Go to design and develop scalable microservices, implement CI/CD automation, and build cloud-native solutions.",
+    "When I'm not immersed in software engineering, I enjoy projects, sports (especially cricket!), videography, travel, and volunteering."
+  ],
+  "skills": ["Java", "Python", "Go", "Bash Script", "AWS", "Azure", "Docker", "Kubernetes", "GitOps", "DNS", "DHCP", "TCP/IP", "Routing", "Switching", "Linux OS", "Host Networking", "Jenkins", "Spinnaker", "Git", "CI/CD Pipelines", "Monitoring", "Automation Scripting", "Microservices Architecture", "Agile", "TDD", "SDLC Best Practices", "Collaboration", "Problem-Solving", "Adaptability", "Ownership", "Continuous Improvement"],
+  "certifications": ["Kubernetes Administration & Helm", "ISTQB Certified Tester Foundation Level", "OCA/OCP Java 7 Certified", "Java SE 21 Developer (in progress)", "AWS Cloud Practitioner (in progress)"],
+  "timeline": [
+    {
+      "title": "Career Break & Upskilling",
+      "date": "Dec 2022 – Present",
+      "type": "experience",
+      "items": [
+        "Took a career break to travel and reflect on long-term direction.",
+        "Upskilled through online courses in Cloud Computing and AI.",
+        "Launched an e-commerce business and developed a missing persons GPS tool."
+      ]
+    },
+    {
+      "title": "Software Engineer @ Ericsson, Athlone",
+      "date": "Sep 2018 - Dec 2022",
+      "type": "experience",
+      "items": [
+        "Architected automation tools and microservices.",
+        "Led CI/CD improvements using Kubernetes and Docker.",
+        "Improved observability and mentored junior engineers."
+      ]
+    },
+    {
+      "title": "MSc in Applied Software Technology @ TUS, Athlone",
+      "date": "Sep 2016 – May 2017",
+      "type": "education"
+    },
+    {
+      "title": "BEng in Computer Engineering @ TUD, Dublin",
+      "date": "Sep 2011 – May 2015",
+      "type": "education"
+    }
+  ],
+  "awards": ["Student of the Year", "Sports Person of the Year", "Public Speaking Competitions"],
+  "interests": ["Projects", "Cricket", "Photography", "Travel", "Volunteering"],
+  "contact": {
+    "email": "biqbal596@gmail.com",
+    "linkedin": "https://www.linkedin.com/in/b-dev"
+  }
+}
